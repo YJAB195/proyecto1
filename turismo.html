@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2471a3;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+        .imagen {
+            width: 50%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .texto {
+            font-size: 1.5em;
+            margin-top: 1em;
+        }
+        footer {
+            background-color: #2471a3;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            clear: both;
+        }
+        button {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galería</h1>
+    </header>
+    <main>
+        <h2 id="titulo">Turismo</h2>
+        <img id="imagen" src="3.jpg" alt="Imagen 1" class="imagen">
+        <p id="texto" class="texto">Lugar Turistico</p>
+        <button id="boton">Siguiente</button>
+    </main>
+    <footer>
+        <p>Referencias </p>
+        <ul>
+            <li>contactanos por nuestro WhatsApp:0957254673
+            <p>			
+            <li>jessicabelduma2008@gmail.com
+			<p>
+            <li><a href="https://maps.app.goo.gl/hQYyh36hy8hfak2F8">Av.Jubones Jose Ramón Vallejos</a>  
+			<p>
+        </ul>
+    </footer>
+
+    <script>
+        let imagenes = [
+            { titulo: "Turismo", src: "3.jpg", texto: "Lugar Turistico" },
+            { titulo: "Zona Pedregosa", src: "2.jpg", texto: "Mar" },
+            { titulo: "Zona De Balneario", src: "1.jpg", texto: "Piscina" },
+			{ titulo: "Vista al mar", src: "4.jpg", texto: "Playa" }
+        ];
+
+        let indice = 0;
+
+        document.getElementById("boton").addEventListener("click", function() {
+            indice = (indice + 1) % imagenes.length;
+            actualizarImagen();
+        });
+
+        function actualizarImagen() {
+            document.getElementById("titulo").textContent = imagenes[indice].titulo;
+            document.getElementById("imagen").src = imagenes[indice].src;
+            document.getElementById("texto").textContent = imagenes[indice].texto;
+        }
+    </script>
+</body>
+</html>
